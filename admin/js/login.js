@@ -17,16 +17,25 @@ $(function(){
                     }
                 }) 
                 if(flag){
-                    alert('输入的用户名或密码不能为空')
+                    // alert('输入的用户名或密码不能为空')
+                    $('.modal').modal('show');
+                    $('.modal-body p').text('输入的用户名或密码不能为空')
                     return false;  //阻止请求的发送
                 }
             },
             success:function(res){
                 if(res.code==200){
-                    alert('登录成功')
-                    window.location.href = './index.html'
+                    // alert('登录成功')
+                    $('.modal').modal('show');
+                    $('.modal-body p').text('登录成功')
+                    $('.modal').on('hidden.bs.modal', function (e) {
+                        // do something...
+                        window.location.href = './index.html'
+                      })
                 }else{
-                    alert(res.msg)
+                    $('.modal').modal('show');
+                    $('.modal-body p').text(res.msg)
+                    // alert(res.msg)
                 }
             }
         })
