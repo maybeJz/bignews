@@ -24,18 +24,14 @@ $(function(){
                 }
             },
             success:function(res){
+                $('.modal').modal('show');
+                $('.modal-body p').text(res.msg)
                 if(res.code==200){
-                    // alert('登录成功')
-                    $('.modal').modal('show');
-                    $('.modal-body p').text('登录成功')
                     $('.modal').on('hidden.bs.modal', function (e) {
-                        // do something...
+                        // 存储token在本地存储中
+                        localStorage.setItem('token',res.token)
                         window.location.href = './index.html'
                       })
-                }else{
-                    $('.modal').modal('show');
-                    $('.modal-body p').text(res.msg)
-                    // alert(res.msg)
                 }
             }
         })
