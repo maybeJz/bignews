@@ -2,7 +2,8 @@ $(function(){
     // 1.立即向服务器发送请求
     $.ajax({
         type: 'get',
-        url: 'http://localhost:8080/api/v1/admin/user/info',
+        // url: 'http://localhost:8080/api/v1/admin/user/info',
+        url: BigNew.user_info,
         headers: {
             'Authorization':localStorage.getItem('token')
         }, 
@@ -17,6 +18,14 @@ $(function(){
                 $('.user_center_link img').attr('src',res.data.userPic);
             }
         }
+    })
+
+    // 退出功能
+    $('.header_bar .logout').on('click',function(){
+        // 退出意味着要删除token
+        localStorage.removeItem('token');
+        // 跳转回login页面
+        window.location.href = './login.html'
     })
     
 

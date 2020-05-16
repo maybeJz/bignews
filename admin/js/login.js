@@ -6,7 +6,8 @@ $(function(){
         // 发送Ajax请求
         $.ajax({
             type: 'post',
-            url: 'http://localhost:8080/api/v1/admin/user/login',
+            // url: 'http://localhost:8080/api/v1/admin/user/login',
+            url: BigNew.user_login,
             data: $(this).serialize(),
             beforeSend: function(){
                 // 先验证用户名和密码是否为空
