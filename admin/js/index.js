@@ -28,5 +28,9 @@ $(function(){
         window.location.href = './login.html'
     })
     
+    // 给左侧按钮注册高亮显示事件(tab栏切换)
+    $('.menu .level01').on('click',function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    })
 
 })
