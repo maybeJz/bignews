@@ -3,9 +3,9 @@ $(function(){
     $.ajax({
         type:'get',
         url:BigNew.user_detail,
-        headers:{
+        /* headers:{
             'Authorization':localStorage.getItem('token')
-        },
+        }, */
         success:function(res){
             if(res.code==200){
                 $('#form .username').val(res.data.username);
@@ -33,9 +33,9 @@ $(function(){
         $.ajax({
             type:'post',
             url:BigNew.user_edit,
-            headers:{
+            /* headers:{
                 'Authorization':localStorage.getItem('token')
-            },
+            }, */
             data:data,
             contentType:false,
             processData:false,
@@ -46,9 +46,9 @@ $(function(){
                     $.ajax({
                         type: 'get',
                         url: BigNew.user_info,
-                        headers: {
+                        /* headers: {
                             'Authorization':localStorage.getItem('token')
-                        }, 
+                        },  */
                         success:function(res){
                         // 2.请求回来的数据立即渲染到页面上
                             if(res.code==200){

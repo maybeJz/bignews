@@ -4,9 +4,9 @@ $(function(){
         type: 'get',
         // url: 'http://localhost:8080/api/v1/admin/user/info',
         url: BigNew.user_info,
-        headers: {
+        /* headers: {
             'Authorization':localStorage.getItem('token')
-        }, 
+        },  */
         success:function(res){
         // 2.请求回来的数据立即渲染到页面上
             if(res.code==200){
