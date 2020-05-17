@@ -16,4 +16,13 @@ $(function(){
             }
         }
     })
+
+    // 
+    $('#exampleInputFile').on('change',function(){
+        var file = this.files[0]  //获取待上传的文件
+        // URL.createObjectURL会将待上传的文件生成一个可浏览的地址
+        var url=URL.createObjectURL(file)
+        // 在图片上渲染出来
+        $('#form .user_pic').attr('src',url);
+    })
 })
