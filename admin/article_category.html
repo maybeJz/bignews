@@ -79,6 +79,25 @@
           </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
       </div><!-- /.modal -->
+
+    <!-- 添加删除数据模态框 -->
+    <div class="modal fade delModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">温馨提示</h4>
+          </div>
+          <div class="modal-body">
+            <p>确定是否要删除这条数据</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary btn-sure">确定</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <!-- 添加模板引擎 -->
     <script type="text/template" id="category">
         {{each data value index}}
@@ -87,7 +106,7 @@
             <td>{{value.slug}}</td>
             <td class="text-center">
                 <a href="javascript:void(0)" data-toggle="modal" data-id="{{value.id}}" class=" btn btn-info btn-xs btn-edit">编辑</a>
-                <a href="javascript:void(0)" class="btn btn-danger btn-xs">删除</a>
+                <a href="javascript:void(0)" data-id="{{value.id}}" class="btn btn-danger btn-xs btn-del">删除</a>
             </td>
         </tr>
         {{/each}}
