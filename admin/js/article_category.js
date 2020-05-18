@@ -23,5 +23,21 @@ $(function(){
         $('.addModal').modal('show')
         // 修改提示标题
         $('.addModal h4').text('编辑文章分类')
+
+        // 发送请求，通过id获取数据
+        $.ajax({
+            type:'get',
+            url:BigNew.category_search,
+            data:{
+                id : $(this).data('id')
+            },
+            success:function(res){
+                if(res.code==200){
+                    $('#myForm input[name=id]').val(res.data[0].id)
+                    $('#myForm input[name=name]').val(res.data[0].name)
+                    $('#myForm input[name=slug]').val(res.data[0].slug)
+                }
+            }
+        })
     })
 })
