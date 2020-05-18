@@ -1,14 +1,17 @@
 $(function(){
-    $.ajax({
-        type:'get',
-        url:BigNew.category_list,
-        success:function(res){
-            // 要将数据渲染在页面上
-            if(res.code==200){
-                $('tbody').html(template('category',res))
+    render()
+    function render(){
+        $.ajax({
+            type:'get',
+            url:BigNew.category_list,
+            success:function(res){
+                // 要将数据渲染在页面上
+                if(res.code==200){
+                    $('tbody').html(template('category',res))
+                }
             }
-        }
-    })
+        })
+    }
     // 设置模态框显示
     $('#xinzengfenlei').on("click",function(){
         $('.addModal').modal('show')
@@ -40,4 +43,25 @@ $(function(){
             }
         })
     })
+
+    // 新增或更新数据，通过是否有ID判断
+    $('.addModal .btn-sure').on('click',function(){
+        // 获取隐藏域中的id
+        var id =$('#myForm input[name=id]').val()
+        $.ajax({
+            type:'post',
+            // 点击确定按钮判断有没有id，如果有就是更新没有就是添加
+            url:id?BigNew.category_edit:BigNew.category_add,
+            data:$('#myForm').serialize(),
+            success:function(res){
+                // console.log(res);
+                if(res.code==200||res.code==201){
+                    $('.addModal').modal('hide');
+                    // 刷新当前页面
+                    render()
+                }
+            }
+        })
+    })
+
 })
