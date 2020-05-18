@@ -11,6 +11,17 @@ $(function(){
     })
     // 设置模态框显示
     $('#xinzengfenlei').on("click",function(){
-        $('.modal').modal('show')
+        $('.addModal').modal('show')
+        // 修改提示标题
+        $('.addModal h4').text('新增文章分类')
+    })
+
+    // 给编辑按钮设置事件
+    // 模板生成的得用委托的方式注册
+    $('tbody').on('click','.btn-edit',function(){
+        // 显示模态框
+        $('.addModal').modal('show')
+        // 修改提示标题
+        $('.addModal h4').text('编辑文章分类')
     })
 })
